@@ -63,6 +63,7 @@ class ImageWindow(QWidget):
         self.setLayout(self.layout)
 
         # Default image
+        self.remember_img = None
         self.file_path = "images/balloon.png"
         self.pixmap = QPixmap(self.file_path)
 
@@ -86,8 +87,10 @@ class ImageWindow(QWidget):
 
 
     def reset_image(self):
+        self.remember_img = None # should only remember image over iterations of the same image
         self.pixmap = QPixmap(self.file_path)
         self.set_image()
+        
 
     # add to inherited function
     def resizeEvent(self, event):
@@ -96,8 +99,13 @@ class ImageWindow(QWidget):
 
 
     def perona_malik_setup(self):
-        image = self.get_image_array()
-        img_min, img_max, scaled_img = self.scale_img(image)
+        if self.remember_img is not None:
+            scaled_img = self.remember_img
+        else:
+            image = self.get_image_array()
+            self.img_min, self.img_max, scaled_img = self.scale_img(image)
+        # image = self.get_image_array()
+        # self.img_min, self.img_max, scaled_img = self.scale_img(image)
 
         num_steps = self.steps_input.text()
         steps = 30 # default
@@ -105,7 +113,8 @@ class ImageWindow(QWidget):
             steps = int(num_steps)
 
         scaled_result = self.perona_malik(scaled_img, steps)
-        result = self.unscale_img(scaled_result, img_min, img_max)
+        result = self.unscale_img(scaled_result, self.img_min, self.img_max)
+        self.remember_img = scaled_result
         self.pixmap = self.get_array_image(result)
         # self.pixmap = self.get_array_image(image)
         self.set_image()
