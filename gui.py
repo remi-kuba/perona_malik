@@ -53,12 +53,17 @@ class ImageWindow(QWidget):
         self.reset_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         self.reset_btn.clicked.connect(self.reset_image)
 
+        # Save button
+        self.save_btn = QPushButton("Save Image")
+        self.save_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.save_btn.clicked.connect(self.save_image)
 
         # Add widgets
         self.layout.addWidget(self.image_label)
         self.layout.addWidget(self.upload_btn)
         self.layout.addWidget(self.steps_input)
         self.layout.addWidget(self.diffusion_btn)
+        self.layout.addWidget(self.save_btn)
         self.layout.addWidget(self.reset_btn)
         self.setLayout(self.layout)
 
@@ -90,6 +95,11 @@ class ImageWindow(QWidget):
         self.remember_img = None # should only remember image over iterations of the same image
         self.pixmap = QPixmap(self.file_path)
         self.set_image()
+
+    
+    def save_image(self):
+        img_file_name = self.file_path.split("/")[-1]
+        self.pixmap.save(f"results/pm_{img_file_name}")
         
 
     # add to inherited function

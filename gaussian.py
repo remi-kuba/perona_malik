@@ -19,12 +19,13 @@ def unscale_img(img, img_min, img_max):
 
 
 if __name__ == '__main__':
-    img_name = "balloon.png"
+    img_name = "noisy_balloon.png"
     grey_img = convert_img(img_name)
 
-    result = grey_img.filter(ImageFilter.GaussianBlur(radius = 4))
+    result = grey_img.filter(ImageFilter.GaussianBlur(radius = 3))
+    result.save(f"results/gaussian_{img_name}")
     
-    plt.imshow(result, cmap='gray')
-    plt.savefig(f"results/gaussian_{img_name}")
-    plt.axis('on')
-    plt.show()
+    # plt.imshow(result, cmap='gray')
+    # plt.axis('off')
+    # plt.savefig(f"results/gaussian_{img_name}")
+    # plt.show()

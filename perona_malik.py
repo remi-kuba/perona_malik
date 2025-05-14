@@ -66,11 +66,12 @@ if __name__ == '__main__':
     img_min, img_max, scaled_img = scale_img(grey_img)
     scaled_result = perona_malik(scaled_img, 30, lmbd=0.1)
     result = unscale_img(scaled_result, img_min, img_max)
+    result.save("results/pm_{img_name}")
 
-    plt.imshow(result, cmap='gray')
-    # plt.imshow(scaled_result, cmap='gray')
-    plt.savefig(f"results/pm_{img_name}")
-    plt.axis('on')
-    plt.show()
+    # plt.imshow(result, cmap='gray')
+    # # plt.imshow(scaled_result, cmap='gray')
+    # plt.savefig(f"results/pm_{img_name}")
+    # plt.axis('on')
+    # plt.show()
 
     # Image.fromarray(result).save("pm.jpg")
