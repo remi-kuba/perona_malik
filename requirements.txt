@@ -1,0 +1,6 @@
+numpy
+matplotlib
+Pillow
+PySide6
+pyqtdarktheme
+
