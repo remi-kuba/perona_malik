@@ -15,7 +15,7 @@ python gui.py
 ```
 
 The GUI should look like the image below: <br />
-<img width="764" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="https://github.com/remi-kuba/perona_malik/readme_images/gui.png"> <br />
+<img width="764" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="readme_images/gui.png"> <br />
 
 ## Run Gaussian smoothing
 - Place the desired image file into the images folder
@@ -25,12 +25,12 @@ The GUI should look like the image below: <br />
 ## Example Result
 Noisy image input:
 
-<img width="764" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="https://github.com/remi-kuba/perona_malik/readme_images/noisy_img1.png"> <br />
+<img width="300" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="readme_images/noisy_img1.png"> <br />
 
 Gaussian blur output:
 
-<img width="764" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="https://github.com/remi-kuba/perona_malik/readme_images/gaussian_noisy_img1.png"> <br />
+<img width="300" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="readme_images/gaussian_noisy_img1.png"> <br />
 
 Perona-Malik diffusion output:
 
-<img width="764" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="https://github.com/remi-kuba/perona_malik/readme_images/pm_noisy_img1.png"> <br />
+<img width="300" alt="Screenshot 2023-08-11 at 12 57 46 AM" src="readme_images/pm_noisy_img1.png"> <br />
